@@ -20,14 +20,14 @@
 
         Clone this folder:
 
-         ```git clone  git@github.com:MansanSouleimanAhmed/React-Container.git ```
+`git clone git@github.com:MansanSouleimanAhmed/React-Container.git`
 
         Inside your folder and run the following commands at the root:
 
-         ``` npm i ```   => To download the nodes modules folder.
+`npm i` => To download the nodes modules folder.
 
-          ``` npm start  ``` => To run React.
+`npm start` => To run React.
 
         Inside the same folder still at the root open another terminal:
 
-        ``` gulp ```
+`gulp`
