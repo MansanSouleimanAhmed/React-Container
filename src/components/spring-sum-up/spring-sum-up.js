@@ -17,6 +17,7 @@ const SpringSumUP = ({
 	backgroundImage,
 	backgroundRepeat,
 	backgroundSize,
+	widthContent,
 }) => {
 	const rootStyle = {
 		height: (height = !undefined ? height : propTypes.height),
@@ -31,7 +32,12 @@ const SpringSumUP = ({
 
 	return (
 		<div style={rootStyle}>
-			<DivHooksComponent propTypesImage={backgroundImage} />
+			<DivHooksComponent
+				backgroundImage={backgroundImage}
+				backgroundImageProps={propTypes.backgroundImage}
+				widthContent={widthContent}
+				widthContentProps={propTypes.widthContent}
+			/>
 		</div>
 	);
 };
@@ -42,6 +48,7 @@ SpringSumUP.propTypes = {
 	padding: propTypes.string,
 	backgroundColor: propTypes.string,
 	opacity: propTypes.string,
+	widthContent: propTypes.string,
 	/* Images */
 
 	backgroundAttachment: propTypes.string,
@@ -55,6 +62,7 @@ SpringSumUP.defaultProps = {
 	width: '100%',
 	margin: '0',
 	padding: '0',
+	widthContent: '100px',
 	backgroundColor: '#fff',
 	opacity: '0.3',
 	/* Images */

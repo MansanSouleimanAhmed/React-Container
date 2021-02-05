@@ -33495,7 +33495,7 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\tposition: relative;\n\theight: inherit;\n\twidth: inherit;\n\tbackground-attachment: fixed;\n\toverflow: hidden;\n\t& > span {\n\t\tposition: absolute;\n\t\twill-change: transform;\n\t\tbackground: lightcoral;\n\t\topacity: 0.6;\n\t}\n\n\t& > div {\n\t\tz-index: 1;\n\t\tposition: absolute;\n\t\ttop: 0;\n\n\t\theight: inherit;\n\t\twidth: 100px;\n\t\t-webkit-box-shadow: 1px 0px 28px 3px #000000;\n\t\tbox-shadow: 1px 0px 28px 3px #000000;\n\t\tbackground-color: red;\n\t\tbackground-image: ", ";\n\t\tbackground-position: 0%;\n\t\tbackground-color: red;\n\t\tbackground-size: 120% 150%;\n\t\t-webkit-background-size: 120% 150%;\n\t\t-moz-background-size: 120% 150%;\n\t\t-o-background-size: 120% 150%;\n\n\t\tbackground-attachment: fixed;\n\t}\n"]);
+  var data = _taggedTemplateLiteral(["\n\tposition: relative;\n\theight: inherit;\n\twidth: inherit;\n\tbackground-attachment: fixed;\n\toverflow: hidden;\n\t& > span {\n\t\tposition: absolute;\n\t\twill-change: transform;\n\t\tbackground: lightcoral;\n\t\topacity: 0.6;\n\t}\n\n\t& > div {\n\t\tz-index: 1;\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\theight: inherit;\n\t\twidth: ", ";\n\t\t-webkit-box-shadow: 1px 0px 28px -3px rgba (0, 0, 0, 0.7);\n\t\tbox-shadow: 1px 0px 28px -3px rgba(0, 0, 0, 0.7);\n\t\tbackground-color: red;\n\t\tbackground-image: ", ";\n\t\tbackground-position: 0%;\n\t\tbackground-color: red;\n\t\tbackground-size: 120% 120%;\n\t\t-webkit-background-size: 120% 120%;\n\t\t-moz-background-size: 120% 120%;\n\t\t-o-background-size: 120% 120%;\n\t\tbackground-attachment: fixed;\n\t}\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -33507,7 +33507,9 @@ function _templateObject() {
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 var DivHooks = _styledComponents.default.div(_templateObject(), function (props) {
-  return props.backgroundImage;
+  return props.widthContent = !undefined ? props.widthContent : props.widthContentProps;
+}, function (props) {
+  return props.backgroundImage = !undefined ? props.backgroundImage : props.backgroundImageProps;
 });
 /* 	 */
 
@@ -33564,7 +33566,7 @@ function DivHooksComponent(props) {
   };
 
   var trans = function trans(x, y) {
-    return "translate3d(".concat(x, "px,").concat(y, "px,0) translate3d(-50%,-50%,0)");
+    return "translate(50px,0px,0)";
   };
 
   var transRectangle = function transRectangle(x, y) {
@@ -33575,7 +33577,7 @@ function DivHooksComponent(props) {
     return {
       xy: [0, 0],
       config: function config(i) {
-        return i === 0 ? fast : slow;
+        return i === 0 ? slow : slow;
       }
     };
   }),
@@ -33584,7 +33586,10 @@ function DivHooksComponent(props) {
       set = _useTrail2[1];
 
   return /*#__PURE__*/_react.default.createElement(_DIvHooks.DivHooks, {
+    backgroundImageProps: props.backgroundImageProps,
     backgroundImage: props.backgroundImage,
+    widthContent: props.widthContent,
+    widthContentProps: _propTypes.default.widthContent,
     onMouseMove: function onMouseMove(event) {
       set({
         xy: [event.clientX, event.clientY]
@@ -33607,27 +33612,6 @@ function DivHooksComponent(props) {
   }));
 }
 
-DivHooksComponent.propTypes = {
-  height: _propTypes.default.string,
-  width: _propTypes.default.string,
-  margin: _propTypes.default.string,
-  padding: _propTypes.default.string,
-  backgroundColor: _propTypes.default.string,
-  opacity: _propTypes.default.string,
-
-  /* Images */
-  backgroundAttachment: _propTypes.default.string,
-  backgroundImage: _propTypes.default.string,
-  backgroundRepeat: _propTypes.default.string,
-  backgroundSize: _propTypes.default.string
-};
-DivHooksComponent.defaultProps = {
-  /* Images */
-  //backgroundAttachment:,
-  backgroundImage: 'url(https://www.partir.com/images/incontournables/japon-hakone-fuji.jpg)',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'cover'
-};
 var _default = DivHooksComponent;
 exports.default = _default;
 },{"react":"../node_modules/react/index.js","react-spring":"../node_modules/react-spring/web.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","prop-types":"../node_modules/prop-types/index.js","./div-bar":"components/spring-sum-up/div-bar.js","./DIvHooks":"components/spring-sum-up/DIvHooks.js"}],"components/spring-sum-up/spring-sum-up.js":[function(require,module,exports) {
@@ -33677,7 +33661,8 @@ var SpringSumUP = function SpringSumUP(_ref) {
       backgroundAttachment = _ref.backgroundAttachment,
       backgroundImage = _ref.backgroundImage,
       backgroundRepeat = _ref.backgroundRepeat,
-      backgroundSize = _ref.backgroundSize;
+      backgroundSize = _ref.backgroundSize,
+      widthContent = _ref.widthContent;
   var rootStyle = {
     height: height = !undefined ? height : _propTypes.default.height,
     width: width = !undefined ? width : _propTypes.default.width,
@@ -33691,7 +33676,10 @@ var SpringSumUP = function SpringSumUP(_ref) {
   return /*#__PURE__*/_react.default.createElement("div", {
     style: rootStyle
   }, /*#__PURE__*/_react.default.createElement(_divHooksComponent.default, {
-    propTypesImage: backgroundImage
+    backgroundImage: backgroundImage,
+    backgroundImageProps: _propTypes.default.backgroundImage,
+    widthContent: widthContent,
+    widthContentProps: _propTypes.default.widthContent
   }));
 };
 
@@ -33702,6 +33690,7 @@ SpringSumUP.propTypes = {
   padding: _propTypes.default.string,
   backgroundColor: _propTypes.default.string,
   opacity: _propTypes.default.string,
+  widthContent: _propTypes.default.string,
 
   /* Images */
   backgroundAttachment: _propTypes.default.string,
@@ -33714,6 +33703,7 @@ SpringSumUP.defaultProps = {
   width: '100%',
   margin: '0',
   padding: '0',
+  widthContent: '100px',
   backgroundColor: '#fff',
   opacity: '0.3',
 
@@ -33745,7 +33735,11 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 //import SpringSumUP from './components/spring-sum-up/spring-sum-up';
 function App() {
-  return /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement(_springSumUp.default, null), /*#__PURE__*/_react.default.createElement("br", null));
+  return /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement(_springSumUp.default, {
+    backgroundImage: "url(https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg)",
+    widthContent: "20%",
+    height: "100vh"
+  }), /*#__PURE__*/_react.default.createElement("br", null));
 }
 
 var _default = App;
@@ -33805,7 +33799,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41985" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39419" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -17,24 +17,20 @@ export const DivHooks = styled.div`
 		z-index: 1;
 		position: absolute;
 		top: 0;
-
 		height: inherit;
-		width: 100px;
-		-webkit-box-shadow: 1px 0px 28px -3px #000000;
-		box-shadow: 1px 0px 28px -3px #000000;
+		width: ${(props) => (props.widthContent = !undefined ? props.widthContent : props.widthContentProps)};
+		-webkit-box-shadow: 1px 0px 28px -3px rgba (0, 0, 0, 0.7);
+		box-shadow: 1px 0px 28px -3px rgba(0, 0, 0, 0.7);
 		background-color: red;
-		background-image: ${(props) => props.backgroundImage};
+		background-image: ${(props) =>
+			(props.backgroundImage = !undefined ? props.backgroundImage : props.backgroundImageProps)};
 		background-position: 0%;
 		background-color: red;
-		background-size: 120% 150%;
-		-webkit-background-size: 120% 150%;
-		-moz-background-size: 120% 150%;
-		-o-background-size: 120% 150%;
-
+		background-size: 120% 120%;
+		-webkit-background-size: 120% 120%;
+		-moz-background-size: 120% 120%;
+		-o-background-size: 120% 120%;
 		background-attachment: fixed;
-	}
-	&>div: nth-child(2) {
-		transform: translateX(50px);
 	}
 `;
 /* 	 */
