@@ -33737,8 +33737,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function App() {
   return /*#__PURE__*/_react.default.createElement(_react.Fragment, null, /*#__PURE__*/_react.default.createElement(_springSumUp.default, {
     backgroundImage: "url(https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg)",
-    widthContent: "20%",
-    height: "100vh"
+    widthContent: "11%",
+    height: "700px"
   }), /*#__PURE__*/_react.default.createElement("br", null));
 }
 
@@ -33799,7 +33799,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39419" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34401" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
